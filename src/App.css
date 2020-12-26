@@ -5,7 +5,26 @@
   flex-direction: column;
 }
 
-main {
+.text-demo {
+  margin: 5% 5% 0 5%;
+  border: 2px solid black;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+}
+
+#fg-heading {
+  font-weight: normal;
+  font-size: 36px;
+  margin: 5px 0 0 15px;
+}
+
+#fg-paragraph {
+  font-weight: normal;
+  font-size: 16px;
+  margin: 5px 0 15px 15px;
+}
+
+.input-wrapper {
   margin-top: auto;
   padding: 5%;
   display: flex;
@@ -13,16 +32,10 @@ main {
   align-items: flex-end;
 }
 
-#fg-text {
-  font-weight: normal;
-  font-size: 36px;
-  margin: 5px 0 0 15px;
-}
-
 .input-fields {
   width: 370px;
   height: 80px;
-  margin-top: 70px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
 }

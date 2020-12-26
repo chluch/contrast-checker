@@ -6,7 +6,7 @@ const HexInput = ({ labelText, field }) => {
   const hexRegex3 = /^#([0-9a-f]{3}){1,2}$/i;
 
   const [fieldType] = useState(field);
-  const [defaultColour, setDefault] = React.useState('#eeeeee');
+  const [defaultColour, setDefault] = React.useState('');
   const [colourInput, setColourInput] = React.useState(defaultColour);
   const [colour, setColour] = React.useState(defaultColour);
   const [err, setErr] = React.useState(false);
@@ -16,7 +16,9 @@ const HexInput = ({ labelText, field }) => {
       document.body.style.background = colour;
     }
     else if (fieldType === 'foreground') {
-      document.getElementById('fg-text').style.color = colour;
+      document.getElementById('fg-heading').style.color = colour;
+      document.getElementById('fg-paragraph').style.color = colour;
+      document.querySelector('.text-demo').style.borderColor = colour;
     }
   }, [colour, fieldType]);
 
@@ -50,6 +52,7 @@ const HexInput = ({ labelText, field }) => {
           <input
             type="text"
             name="colour"
+            placeholder="#hex"
             value={colourInput}
             maxLength="7"
             className="text-input"
