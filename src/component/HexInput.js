@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import hexToRbg from '../util/hexToRbg';
+import calcLuminance from '../util/luminance';
 
-const HexInput = ({ labelText, field }) => {
+const HexInput = ({ labelText, field, initialColour, update }) => {
   const hexRegex6 = /^#[0-9A-F]{6}$/i;
   const hexRegex3 = /^#([0-9a-f]{3}){1,2}$/i;
 
-  const [fieldType] = useState(field);
-  const [defaultColour, setDefault] = React.useState('');
+  const [fieldType] = React.useState(field);
+  const [defaultColour, setDefault] = React.useState(initialColour);
   const [colourInput, setColourInput] = React.useState(defaultColour);
   const [colour, setColour] = React.useState(defaultColour);
   const [err, setErr] = React.useState(false);
@@ -13,13 +15,15 @@ const HexInput = ({ labelText, field }) => {
   React.useEffect(() => {
     if (fieldType === 'background') {
       document.body.style.background = colour;
+      update(calcLuminance(hexToRbg(colour)));
     }
     else if (fieldType === 'foreground') {
       document.getElementById('fg-heading').style.color = colour;
       document.getElementById('fg-paragraph').style.color = colour;
       document.querySelector('.text-demo').style.borderColor = colour;
+      update(calcLuminance(hexToRbg(colour)));
     }
-  }, [colour, fieldType]);
+  }, [colour, fieldType, update]);
 
   const handleTextChange = (e) => {
     setColourInput(e.target.value);
