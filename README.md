@@ -1,5 +1,6 @@
 # Colour Contrast Checker
 
+* [Demo](https://chluch.github.io/contrast-checker/)
 * Written with React hooks
 * Checks the contrast ratio between two colours based on user input
 * Breakpoint ratios are set at 7:1 for normal text and 4.5:1 for large text (>14pt) as per WCAG AAA requirements
