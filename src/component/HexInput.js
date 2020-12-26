@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const HexInput = ({ labelText, field }) => {
-  let updateTimeout = null;
   const hexRegex6 = /^#[0-9A-F]{6}$/i;
   const hexRegex3 = /^#([0-9a-f]{3}){1,2}$/i;
 
@@ -24,17 +23,14 @@ const HexInput = ({ labelText, field }) => {
 
   const handleTextChange = (e) => {
     setColourInput(e.target.value);
-    clearTimeout(updateTimeout);
-    updateTimeout = setTimeout(() => {
-      if (hexRegex6.test(e.target.value) || hexRegex3.test(e.target.value)) {
-        setErr(false);
-        setDefault(e.target.value);
-        setColour(e.target.value);
-      } else {
-        setErr(true);
-        setColour(defaultColour);
-      }
-    }, 1000);
+    if (hexRegex6.test(e.target.value) || hexRegex3.test(e.target.value)) {
+      setErr(false);
+      setDefault(e.target.value);
+      setColour(e.target.value);
+    } else {
+      setErr(true);
+      setColour(defaultColour);
+    }
   }
 
   const handleColourChange = (e) => {
