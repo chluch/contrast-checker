@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import contrastRatio from './util/contrastRatio';
 import HexInput from './component/HexInput';
+import ContrastAlert from './component/ContrastAlert';
 
 function App() {
   const [L1, setL1] = useState(1);
@@ -37,6 +38,10 @@ function App() {
           </div>
         </div>
         <div className="contrast-wrapper">
+          <div className="alert-wrapper">
+            <ContrastAlert ratio={ratio} breakpoint={7} textSize="Normal text" />
+            <ContrastAlert ratio={ratio} breakpoint={4.5} textSize="Big text" />
+          </div>
           <h1>Contrast Ratio: {ratio}</h1>
         </div>
         <div className="input-wrapper">
@@ -55,6 +60,7 @@ function App() {
         </div>
       </main>
       <footer>
+        <p id="legend">&#9888; = Failed WCAG AAA</p>
         <p>
           contrast ratio calculated based on&nbsp;
           <a
