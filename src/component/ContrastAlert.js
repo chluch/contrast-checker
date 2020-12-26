@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const ContrastAlert = ({ ratio, breakpoint, textSize }) => {
-  const [fail, setFail] = React.useState(false);
+  const [fail, setFail] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     ratio > breakpoint ? setFail(false) : setFail(true);
   }, [breakpoint, ratio]);
 
