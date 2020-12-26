@@ -36,20 +36,31 @@ const HexInput = ({ labelText, field }) => {
   }
 
   return (
-    <div className="input-field">
-      <label>
-        {labelText}
+    <div className="input-fields">
+      <div className="text-field">
+        <label>
+          {labelText}
+          <input
+            type="text"
+            name="colour"
+            value={colourInput}
+            maxLength="7"
+            className="text-input"
+            autoComplete="off"
+            onChange={handleChange}
+          />
+        </label>
+        {err ? <div className="error-message">Invalid hex code!</div> : null}
+      </div>
+      <div className="colour-field">
         <input
-          type="text"
-          name="colour"
+          className="colour-picker"
+          type="color"
           value={colourInput}
-          maxLength="7"
-          className="text-input"
-          autoComplete="off"
           onChange={handleChange}
+          aria-label={`colour-picker-for-${labelText}`}
         />
-      </label>
-      {err ? <div className="error-message">Invalid hex code!</div> : null}
+      </div>
     </div>
   )
 }

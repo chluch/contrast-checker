@@ -9,7 +9,7 @@ function App() {
       <h1 id="fg-text">Hello World</h1>
       </header>
       <main>
-      {/* <HexInput labelText="text" field="foreground" /> */}
+      <HexInput labelText="text" field="foreground" />
       <HexInput labelText="background" field="background"/>
       </main>
     </div>
