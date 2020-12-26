@@ -20,7 +20,7 @@ const HexInput = ({ labelText, field }) => {
     }
   }, [colour, fieldType]);
 
-  const handleChange = (e) => {
+  const handleTextChange = (e) => {
     setColourInput(e.target.value);
     clearTimeout(updateTimeout);
     updateTimeout = setTimeout(() => {
@@ -35,6 +35,13 @@ const HexInput = ({ labelText, field }) => {
     }, 1000);
   }
 
+  const handleColourChange = (e) => {
+    setDefault(e.target.value);
+    setColourInput(e.target.value);
+    setColour(e.target.value);
+    setErr(false);
+  }
+
   return (
     <div className="input-fields">
       <div className="text-field">
@@ -47,7 +54,7 @@ const HexInput = ({ labelText, field }) => {
             maxLength="7"
             className="text-input"
             autoComplete="off"
-            onChange={handleChange}
+            onChange={handleTextChange}
           />
         </label>
         {err ? <div className="error-message">Invalid hex code!</div> : null}
@@ -57,7 +64,7 @@ const HexInput = ({ labelText, field }) => {
           className="colour-picker"
           type="color"
           value={colourInput}
-          onChange={handleChange}
+          onChange={handleColourChange}
           aria-label={`colour-picker-for-${labelText}`}
         />
       </div>
