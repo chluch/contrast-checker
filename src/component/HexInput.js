@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import hexToRbg from '../util/hexToRbg';
 import calcLuminance from '../util/luminance';
 
@@ -6,13 +6,13 @@ const HexInput = ({ labelText, field, initialColour, update }) => {
   const hexRegex6 = /^#[0-9A-F]{6}$/i;
   const hexRegex3 = /^#([0-9a-f]{3}){1,2}$/i;
 
-  const [fieldType] = React.useState(field);
-  const [defaultColour, setDefault] = React.useState(initialColour);
-  const [colourInput, setColourInput] = React.useState(defaultColour);
-  const [colour, setColour] = React.useState(defaultColour);
-  const [err, setErr] = React.useState(false);
+  const [fieldType] = useState(field);
+  const [defaultColour, setDefault] = useState(initialColour);
+  const [colourInput, setColourInput] = useState(defaultColour);
+  const [colour, setColour] = useState(defaultColour);
+  const [err, setErr] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (fieldType === 'background') {
       document.body.style.background = colour;
       update(calcLuminance(hexToRbg(colour)));

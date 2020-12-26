@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import contrastRatio from './util/contrastRatio';
 import HexInput from './component/HexInput';
 
 function App() {
-  const [L1, setL1] = React.useState(1);
-  const [L2, setL2] = React.useState(0);;
-  const [ratio, setRatio] = React.useState(contrastRatio(L1, L2));
+  const [L1, setL1] = useState(1);
+  const [L2, setL2] = useState(0);;
+  const [ratio, setRatio] = useState(contrastRatio(L1, L2));
 
   const updateL1 = (val) => {
     setL1(val);
@@ -15,7 +15,7 @@ function App() {
     setL2(val);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setRatio(contrastRatio(L1, L2))
   }, [L1, L2]);
 
