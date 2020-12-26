@@ -62,14 +62,13 @@ function App() {
       <footer>
         <p id="legend">&#9888; = Failed WCAG AAA</p>
         <p>
-          contrast ratio calculated based on&nbsp;
           <a
             href="https://www.w3.org/TR/WCAG20-TECHS/G17#G17-procedure"
             target="_blank"
             rel="noreferrer"
             className="footer-link"
           >
-            formulas from W3C
+            calculations based on W3C
           </a>
         </p>
       </footer>
