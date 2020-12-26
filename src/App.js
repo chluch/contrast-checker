@@ -63,7 +63,7 @@ function App() {
             rel="noreferrer"
             className="footer-link"
           >
-            formulas from 3WC
+            formulas from W3C
           </a>
         </p>
       </footer>
