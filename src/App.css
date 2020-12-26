@@ -27,9 +27,23 @@
   margin: 15px;
 }
 
+.contrast-wrapper {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: auto;
+  background-color: #eee;
+  color: #2d2d2d;
+}
+
+.contrast-wrapper >h1 {
+  font-size: 48px;
+  margin: 0 0 -59px 0;
+}
+
 .input-wrapper {
   flex: 1;
-  margin-top: auto;
   padding: 5%;
   display: flex;
   justify-content: flex-end;

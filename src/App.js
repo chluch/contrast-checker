@@ -19,6 +19,9 @@ function App() {
       </p>
         </div>
       </div>
+      <div className="contrast-wrapper">
+        <h1>Contrast Ratio:</h1>
+      </div>
       <div className="input-wrapper">
         <HexInput labelText="text" field="foreground" />
         <HexInput labelText="background" field="background" />
